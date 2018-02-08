@@ -11,6 +11,8 @@
 
 #import "FBTweakViewController.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 /**
   @abstract A UIWindow that automatically presents tweaks when the user shakes the device.
   @discussion Use this window as your app's root window to enable shaking to open tweaks.
@@ -18,8 +20,15 @@
 @interface FBTweakShakeWindow : UIWindow <FBTweakViewControllerDelegate>
 
 /**
+ @abstract Dismisses the Tweaks view controller if it's currently presented.
+ */
+- (void)dismissTweaksViewController;
+
+/**
  @abstract Toggles FBTweakShakeWindow's ability to respond to shake gestures. Defaults to YES
  */
 @property (nonatomic) BOOL shakeEnabled;
 
 @end
+
+NS_ASSUME_NONNULL_END
