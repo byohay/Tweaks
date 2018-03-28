@@ -124,6 +124,10 @@ static id<FBTweak> _FBTweakCreateWithEntry(NSString *identifier, fb_tweak_entry 
     size_t count = size / sizeof(fb_tweak_entry);
     for (size_t i = 0; i < count; i++) {
       fb_tweak_entry *entry = &data[i];
+      if (!entry->category || !entry->collection || !entry->value || !entry->name) {
+        continue;
+      }
+
       FBTweakCategory *category = [store tweakCategoryWithName:*entry->category];
       if (category == nil) {
         category = [[FBTweakCategory alloc] initWithName:*entry->category];
