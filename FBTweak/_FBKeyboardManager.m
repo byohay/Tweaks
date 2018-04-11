@@ -58,13 +58,13 @@
   UIViewAnimationCurve curve = [userInfo[UIKeyboardAnimationCurveUserInfoKey] integerValue];
 
   void (^animations)(void) = ^{
-    UIEdgeInsets contentInset = _scrollView.contentInset;
+    UIEdgeInsets contentInset = self->_scrollView.contentInset;
     contentInset.bottom = (contentView.bounds.size.height - CGRectGetMinY(endFrame));
-    _scrollView.contentInset = contentInset;
+    self->_scrollView.contentInset = contentInset;
 
-    UIEdgeInsets scrollIndicatorInsets = _scrollView.scrollIndicatorInsets;
+    UIEdgeInsets scrollIndicatorInsets = self->_scrollView.scrollIndicatorInsets;
     scrollIndicatorInsets.bottom = (contentView.bounds.size.height - CGRectGetMinY(endFrame));
-    _scrollView.scrollIndicatorInsets = scrollIndicatorInsets;
+    self->_scrollView.scrollIndicatorInsets = scrollIndicatorInsets;
   };
 
   UIViewAnimationOptions options = (curve << 16) | UIViewAnimationOptionBeginFromCurrentState;
