@@ -49,7 +49,7 @@ typedef NS_ENUM(NSUInteger, _FBTweakTableViewCellMode) {
 - (instancetype)initWithStyle:(UITableViewCellStyle)style
               reuseIdentifier:(NSString *)reuseIdentifier
 {
-  if ((self = [super initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:reuseIdentifier])) {
+  if ((self = [super initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:reuseIdentifier])) {
     _accessoryView = [[UIView alloc] init];
 
     _switch = [[UISwitch alloc] init];
