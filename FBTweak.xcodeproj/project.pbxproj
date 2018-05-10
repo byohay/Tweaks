@@ -67,6 +67,8 @@
 		886109A720396F2D00B0A64F /* _FBColorUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E1F48E91901E4D500D7C4A2 /* _FBColorUtils.h */; };
 		88A48053200179EC0046B7D1 /* _FBActionTweakTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 88A48052200179EC0046B7D1 /* _FBActionTweakTableViewCell.m */; };
 		88A48056200208180046B7D1 /* _FBTweakTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 88A48055200208180046B7D1 /* _FBTweakTableViewCell.m */; };
+		9F9DC6BD20A4607400A46469 /* _FBEditableTweakDateViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 9F9DC6BB20A4607400A46469 /* _FBEditableTweakDateViewController.h */; };
+		9F9DC6BE20A4607400A46469 /* _FBEditableTweakDateViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9F9DC6BC20A4607400A46469 /* _FBEditableTweakDateViewController.mm */; };
 		C15FEBB81C7F132400371B1D /* _FBTweakColorViewControllerHexDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = C15FEBB71C7F132400371B1D /* _FBTweakColorViewControllerHexDataSource.m */; };
 /* End PBXBuildFile section */
 
@@ -141,6 +143,8 @@
 		88A48052200179EC0046B7D1 /* _FBActionTweakTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = _FBActionTweakTableViewCell.m; sourceTree = "<group>"; };
 		88A48054200208180046B7D1 /* _FBTweakTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = _FBTweakTableViewCell.h; sourceTree = "<group>"; };
 		88A48055200208180046B7D1 /* _FBTweakTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = _FBTweakTableViewCell.m; sourceTree = "<group>"; };
+		9F9DC6BB20A4607400A46469 /* _FBEditableTweakDateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _FBEditableTweakDateViewController.h; sourceTree = "<group>"; };
+		9F9DC6BC20A4607400A46469 /* _FBEditableTweakDateViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = _FBEditableTweakDateViewController.mm; sourceTree = "<group>"; };
 		C15FEBB61C7F132400371B1D /* _FBTweakColorViewControllerHexDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _FBTweakColorViewControllerHexDataSource.h; sourceTree = "<group>"; };
 		C15FEBB71C7F132400371B1D /* _FBTweakColorViewControllerHexDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.c.objc; path = _FBTweakColorViewControllerHexDataSource.m; sourceTree = "<group>"; tabWidth = 2; };
 /* End PBXFileReference section */
@@ -258,6 +262,8 @@
 		18EFE4BE189EBD0800DA6A5D /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				9F9DC6BB20A4607400A46469 /* _FBEditableTweakDateViewController.h */,
+				9F9DC6BC20A4607400A46469 /* _FBEditableTweakDateViewController.mm */,
 				18EFE4AC189EBABA00DA6A5D /* FBTweakShakeWindow.h */,
 				18EFE4AD189EBABA00DA6A5D /* FBTweakShakeWindow.m */,
 				18EFE4A4189EBA9E00DA6A5D /* FBTweakViewController.h */,
@@ -346,6 +352,7 @@
 				8861099F20396F2D00B0A64F /* _FBTweakColorViewControllerDataSource.h in Headers */,
 				886109A020396F2D00B0A64F /* _FBTweakColorViewControllerRGBDataSource.h in Headers */,
 				886109A120396F2D00B0A64F /* _FBTweakColorViewControllerHSBDataSource.h in Headers */,
+				9F9DC6BD20A4607400A46469 /* _FBEditableTweakDateViewController.h in Headers */,
 				886109A220396F2D00B0A64F /* _FBTweakColorViewControllerHexDataSource.h in Headers */,
 				886109A320396F2D00B0A64F /* _FBColorComponentCell.h in Headers */,
 				886109A420396F2D00B0A64F /* _FBColorWheelCell.h in Headers */,
@@ -441,6 +448,7 @@
 				C15FEBB81C7F132400371B1D /* _FBTweakColorViewControllerHexDataSource.m in Sources */,
 				18EFE4A7189EBA9E00DA6A5D /* FBTweakViewController.m in Sources */,
 				18EFE4BD189EBC4B00DA6A5D /* FBTweakCollection.m in Sources */,
+				9F9DC6BE20A4607400A46469 /* _FBEditableTweakDateViewController.mm in Sources */,
 				18EFE4C2189EBEAD00DA6A5D /* FBTweakStore.m in Sources */,
 				5E66FDD91B80ECDA007464F3 /* _FBTweakColorViewControllerHSBDataSource.m in Sources */,
 				18EFE4AB189EBAAD00DA6A5D /* FBTweakInline.m in Sources */,

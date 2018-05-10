@@ -30,6 +30,7 @@ typedef NS_ENUM(NSUInteger, _FBTweakTableViewCellMode) {
   _FBTweakTableViewCellModeDictionary,
   _FBTweakTableViewCellModeArray,
   _FBTweakTableViewCellModeColor,
+  _FBTweakTableViewCellModeDate,
 };
 
 @interface _FBEditableTweakTableViewCell () <UITextFieldDelegate>
@@ -97,7 +98,7 @@ typedef NS_ENUM(NSUInteger, _FBTweakTableViewCellMode) {
     
     CGRect accessoryFrame = CGRectUnion(stepperFrame, textFrame);
     _accessoryView.bounds = CGRectIntegral(accessoryFrame);
-  } else if (_mode == _FBTweakTableViewCellModeString) {
+  } else if (_mode == _FBTweakTableViewCellModeString || _mode == _FBTweakTableViewCellModeDate) {
     CGFloat margin = CGRectGetMinX(self.textLabel.frame);
     CGFloat textFieldWidth = self.bounds.size.width - (margin * 3.0) - [self.textLabel sizeThatFits:CGSizeZero].width;
     CGRect textBounds = CGRectMake(0, 0, textFieldWidth, self.bounds.size.height);
@@ -133,6 +134,8 @@ typedef NS_ENUM(NSUInteger, _FBTweakTableViewCellMode) {
     mode = _FBTweakTableViewCellModeColor;
   } else if ([value isKindOfClass:[NSString class]]) {
     mode = _FBTweakTableViewCellModeString;
+  } else if ([value isKindOfClass:[NSDate class]]) {
+    mode = _FBTweakTableViewCellModeDate;
   } else if ([value isKindOfClass:[NSNumber class]]) {
     // In the 64-bit runtime, BOOL is a real boolean.
     // NSNumber doesn't always agree; compare both.
@@ -253,6 +256,11 @@ typedef NS_ENUM(NSUInteger, _FBTweakTableViewCellMode) {
     self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     self.accessoryView = nil;
     self.imageView.hidden = NO;
+  } else if (_mode == _FBTweakTableViewCellModeDate) {
+    _switch.hidden = YES;
+    _textField.hidden = NO;
+    _textField.enabled = NO;
+    _stepper.hidden = YES;
   } else {
     _switch.hidden = YES;
     _textField.hidden = YES;
@@ -306,7 +314,7 @@ typedef NS_ENUM(NSUInteger, _FBTweakTableViewCellMode) {
   if (write) {
     self.tweak.currentValue = value;
   }
-  
+
   if (_mode == _FBTweakTableViewCellModeBoolean) {
     if (primary) {
       _switch.on = [value boolValue];
@@ -315,7 +323,15 @@ typedef NS_ENUM(NSUInteger, _FBTweakTableViewCellMode) {
     if (primary) {
       _textField.text = value;
     }
-  } else if (_mode == _FBTweakTableViewCellModeInteger) {
+  } else if (_mode == _FBTweakTableViewCellModeDate) {
+    if (primary) {
+      NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+      [formatter setDateStyle:NSDateFormatterShortStyle];
+      [formatter setTimeStyle:NSDateFormatterShortStyle];
+      _textField.text = [formatter stringFromDate:((NSDate *)value)];
+    }
+  }
+  else if (_mode == _FBTweakTableViewCellModeInteger) {
     if (primary) {
       _stepper.value = [value longLongValue];
     }
