@@ -18,6 +18,7 @@
 #import "_FBKeyboardManager.h"
 #import "_FBTweakCollectionViewController.h"
 #import "_FBTweakTableViewCell.h"
+#import "_FBEditableTweakDateViewController.h"
 
 @implementation _FBTweakCollectionViewController {
   _FBKeyboardManager *_keyboardManager;
@@ -189,6 +190,9 @@
       [self.navigationController pushViewController:vc animated:YES];
     } else if ([editableTweak.defaultValue isKindOfClass:[UIColor class]]) {
       _FBEditableTweakColorViewController *vc = [[_FBEditableTweakColorViewController alloc] initWithEditableTweak:editableTweak];
+      [self.navigationController pushViewController:vc animated:YES];
+    } else if ([editableTweak.defaultValue isKindOfClass:[NSDate class]]) {
+      _FBEditableTweakDateViewController *vc = [[_FBEditableTweakDateViewController alloc] initWithEditableTweak:editableTweak];
       [self.navigationController pushViewController:vc animated:YES];
     }
   } else {
