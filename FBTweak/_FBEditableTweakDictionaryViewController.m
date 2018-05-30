@@ -70,7 +70,8 @@
   FBTweakValue key = allKeys[indexPath.row];
   NSString *value = _tweak.possibleValues[key];
   cell.textLabel.text = value;
-  
+  cell.textLabel.numberOfLines = 0;
+
   cell.accessoryType = UITableViewCellAccessoryNone;
   NSString *selectedKey = (_tweak.currentValue ?: _tweak.defaultValue);
   if ([selectedKey isEqual:key]) {
