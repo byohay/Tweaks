@@ -9,6 +9,8 @@
 
 #import "FBTweak.h"
 #import "_FBEditableTweakTableViewCell.h"
+#import "FBTweaksDisplayUtils.h"
+
 
 static UIImage *_FBCreateColorCellsThumbnail(UIColor *color, CGSize size) {
   UIGraphicsBeginImageContext(size);
@@ -225,8 +227,11 @@ typedef NS_ENUM(NSUInteger, _FBTweakTableViewCellMode) {
   } else if (_mode == _FBTweakTableViewCellModeString) {
     _switch.hidden = YES;
     _textField.hidden = NO;
-    _textField.keyboardType = UIKeyboardTypeDefault;
+    _textField.enabled = NO;
     _stepper.hidden = YES;
+    self.accessoryView = nil;
+    self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    self.selectionStyle = UITableViewCellSelectionStyleBlue;
   } else if (_mode == _FBTweakTableViewCellModeAction) {
     _switch.hidden = YES;
     _textField.hidden = YES;
@@ -258,9 +263,11 @@ typedef NS_ENUM(NSUInteger, _FBTweakTableViewCellMode) {
     self.imageView.hidden = NO;
   } else if (_mode == _FBTweakTableViewCellModeDate) {
     _switch.hidden = YES;
-    _textField.hidden = NO;
-    _textField.enabled = NO;
+    _textField.hidden = YES;
     _stepper.hidden = YES;
+    self.accessoryView = nil;
+    self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    self.selectionStyle = UITableViewCellSelectionStyleBlue;
   } else {
     _switch.hidden = YES;
     _textField.hidden = YES;
@@ -286,7 +293,7 @@ typedef NS_ENUM(NSUInteger, _FBTweakTableViewCellMode) {
 
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
-  if (_mode == _FBTweakTableViewCellModeString || _mode == _FBTweakTableViewCellModeColor) {
+  if (_mode == _FBTweakTableViewCellModeColor) {
     [self _updateValue:_textField.text primary:NO write:YES];
   } else if (_mode == _FBTweakTableViewCellModeInteger) {
     NSNumber *number = @([_textField.text longLongValue]);
@@ -321,14 +328,12 @@ typedef NS_ENUM(NSUInteger, _FBTweakTableViewCellMode) {
     }
   } else if (_mode == _FBTweakTableViewCellModeString) {
     if (primary) {
-      _textField.text = value;
+      self.detailTextLabel.text = value;
     }
   } else if (_mode == _FBTweakTableViewCellModeDate) {
     if (primary) {
-      NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-      [formatter setDateStyle:NSDateFormatterShortStyle];
-      [formatter setTimeStyle:NSDateFormatterShortStyle];
-      _textField.text = [formatter stringFromDate:((NSDate *)value)];
+      NSDate *date = (NSDate *)value;
+      self.detailTextLabel.text = [FBTweaksDisplayUtils simpleLocalFormattedDate:date];
     }
   }
   else if (_mode == _FBTweakTableViewCellModeInteger) {
@@ -347,7 +352,7 @@ typedef NS_ENUM(NSUInteger, _FBTweakTableViewCellMode) {
     if (self.tweak.precisionValue) {
       precision = [[self.tweak precisionValue] longValue];
     }
-    
+
     NSString *format = [NSString stringWithFormat:@"%%.%ldf", precision];
     _textField.text = [NSString stringWithFormat:format, [value doubleValue]];
   } else if (_mode == _FBTweakTableViewCellModeDictionary) {

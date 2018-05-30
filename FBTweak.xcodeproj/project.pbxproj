@@ -70,6 +70,10 @@
 		9F9DC6BD20A4607400A46469 /* _FBEditableTweakDateViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 9F9DC6BB20A4607400A46469 /* _FBEditableTweakDateViewController.h */; };
 		9F9DC6BE20A4607400A46469 /* _FBEditableTweakDateViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9F9DC6BC20A4607400A46469 /* _FBEditableTweakDateViewController.mm */; };
 		C15FEBB81C7F132400371B1D /* _FBTweakColorViewControllerHexDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = C15FEBB71C7F132400371B1D /* _FBTweakColorViewControllerHexDataSource.m */; };
+		C477D3AF7A5A522F1E6CC04B /* FBTweaksDisplayUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = C477DD168F334CD518E21CB9 /* FBTweaksDisplayUtils.h */; };
+		C477DA8D28A6F1EEEDCA535D /* _FBEditableTweakStringViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C477DD61956C81159A9F11A3 /* _FBEditableTweakStringViewController.mm */; };
+		C477DAA513B47FE424C1DE35 /* _FBEditableTweakStringViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = C477DD4B1E9AC68627B3E2EC /* _FBEditableTweakStringViewController.h */; };
+		C477DFFDDAAEAE65843F0CB6 /* FBTweaksDisplayUtils.mm in Sources */ = {isa = PBXBuildFile; fileRef = C477D2A188418782E224370C /* FBTweaksDisplayUtils.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -147,6 +151,10 @@
 		9F9DC6BC20A4607400A46469 /* _FBEditableTweakDateViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = _FBEditableTweakDateViewController.mm; sourceTree = "<group>"; };
 		C15FEBB61C7F132400371B1D /* _FBTweakColorViewControllerHexDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _FBTweakColorViewControllerHexDataSource.h; sourceTree = "<group>"; };
 		C15FEBB71C7F132400371B1D /* _FBTweakColorViewControllerHexDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.c.objc; path = _FBTweakColorViewControllerHexDataSource.m; sourceTree = "<group>"; tabWidth = 2; };
+		C477D2A188418782E224370C /* FBTweaksDisplayUtils.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FBTweaksDisplayUtils.mm; sourceTree = "<group>"; };
+		C477DD168F334CD518E21CB9 /* FBTweaksDisplayUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBTweaksDisplayUtils.h; sourceTree = "<group>"; };
+		C477DD4B1E9AC68627B3E2EC /* _FBEditableTweakStringViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _FBEditableTweakStringViewController.h; sourceTree = "<group>"; };
+		C477DD61956C81159A9F11A3 /* _FBEditableTweakStringViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = _FBEditableTweakStringViewController.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -299,6 +307,10 @@
 				5E1708C41905B89800402135 /* _FBSliderView.m */,
 				5E1708DB190B147000402135 /* _FBKeyboardManager.h */,
 				5E1708DC190B147000402135 /* _FBKeyboardManager.m */,
+				C477DD61956C81159A9F11A3 /* _FBEditableTweakStringViewController.mm */,
+				C477DD4B1E9AC68627B3E2EC /* _FBEditableTweakStringViewController.h */,
+				C477D2A188418782E224370C /* FBTweaksDisplayUtils.mm */,
+				C477DD168F334CD518E21CB9 /* FBTweaksDisplayUtils.h */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -359,6 +371,8 @@
 				886109A520396F2D00B0A64F /* _FBSliderView.h in Headers */,
 				886109A620396F2D00B0A64F /* _FBKeyboardManager.h in Headers */,
 				886109A720396F2D00B0A64F /* _FBColorUtils.h in Headers */,
+				C477DAA513B47FE424C1DE35 /* _FBEditableTweakStringViewController.h in Headers */,
+				C477D3AF7A5A522F1E6CC04B /* FBTweaksDisplayUtils.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -468,6 +482,8 @@
 				88A48053200179EC0046B7D1 /* _FBActionTweakTableViewCell.m in Sources */,
 				5E66FDD31B80E4C1007464F3 /* _FBTweakColorViewControllerRGBDataSource.m in Sources */,
 				184A94F118D26871005F2774 /* _FBTweakBindObserver.m in Sources */,
+				C477DA8D28A6F1EEEDCA535D /* _FBEditableTweakStringViewController.mm in Sources */,
+				C477DFFDDAAEAE65843F0CB6 /* FBTweaksDisplayUtils.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
