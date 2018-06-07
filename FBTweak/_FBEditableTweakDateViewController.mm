@@ -22,7 +22,6 @@
   if ((self = [super initWithNibName:nil bundle:nil])) {
     _tweak = tweak;
     self.title = _tweak.name;
-    self.datePicker.date = tweak.currentValue ?: tweak.defaultValue;
   }
   return self;
 }
@@ -42,6 +41,7 @@
       self.view.bounds.size.width,
       self.view.bounds.size.height * 2.0/3.0 );
   _datePicker = [[UIDatePicker alloc] initWithFrame:datePickerRect];
+  self.datePicker.date = self.tweak.currentValue ?: self.tweak.defaultValue;
   [self.view addSubview:self.datePicker];
 }
 

@@ -9,6 +9,7 @@
 
 #import "FBTweak.h"
 #import "_FBTweakTableViewCell.h"
+#import "FBTweaksDisplayUtils.h"
 
 @implementation _FBTweakTableViewCell
 
@@ -22,7 +23,12 @@ typedef void (^FBTweakTableViewCellBlock)(_FBTweakTableViewCell *cell, id value)
 + (NSDictionary<NSString *, FBTweakTableViewCellBlock> *)keyPathMapping {
   return @{
     @"tweak.currentValue": ^(_FBTweakTableViewCell *cell, id value) {
-      cell.detailTextLabel.text = [value description];
+      if ([value isKindOfClass:NSDate.class]) {
+        cell.detailTextLabel.text = [FBTweaksDisplayUtils simpleLocalFormattedDate:value];
+      }
+      else {
+        cell.detailTextLabel.text = [value description];
+      }
     },
     @"tweak.name": ^(_FBTweakTableViewCell *cell, id value) {
       if ([value isKindOfClass:[NSString class]]) {

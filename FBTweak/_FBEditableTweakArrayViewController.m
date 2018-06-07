@@ -68,6 +68,7 @@
   FBTweakValue rowValue = self.tweak.possibleValues[indexPath.row];
   NSString *stringValue = [rowValue description];
   cell.textLabel.text = stringValue;
+  cell.textLabel.numberOfLines = 0;
 
   cell.accessoryType = UITableViewCellAccessoryNone;
   FBTweakValue selectedValue = (self.tweak.currentValue ?: self.tweak.defaultValue);

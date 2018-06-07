@@ -19,6 +19,7 @@
 #import "_FBTweakCollectionViewController.h"
 #import "_FBTweakTableViewCell.h"
 #import "_FBEditableTweakDateViewController.h"
+#import "_FBEditableTweakStringViewController.h"
 
 @implementation _FBTweakCollectionViewController {
   _FBKeyboardManager *_keyboardManager;
@@ -193,6 +194,10 @@
       [self.navigationController pushViewController:vc animated:YES];
     } else if ([editableTweak.defaultValue isKindOfClass:[NSDate class]]) {
       _FBEditableTweakDateViewController *vc = [[_FBEditableTweakDateViewController alloc] initWithEditableTweak:editableTweak];
+      [self.navigationController pushViewController:vc animated:YES];
+    } else if ([editableTweak.defaultValue isKindOfClass:[NSString class]]) {
+      _FBEditableTweakStringViewController *vc = [[_FBEditableTweakStringViewController alloc]
+          initWithEditableTweak:editableTweak];
       [self.navigationController pushViewController:vc animated:YES];
     }
   } else {
