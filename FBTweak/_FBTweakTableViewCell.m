@@ -41,7 +41,6 @@ typedef void (^FBTweakTableViewCellBlock)(_FBTweakTableViewCell *cell, id value)
 - (instancetype)initWithStyle:(UITableViewCellStyle)style
               reuseIdentifier:(NSString *)reuseIdentifier {
   if ((self = [super initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:reuseIdentifier])) {
-    self.detailTextLabel.textColor = [UIColor blackColor];
     for (NSString *keyToObserve in [[self class] keyPathMapping]) {
       [self addObserver:self forKeyPath:keyToObserve
                 options:NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew
