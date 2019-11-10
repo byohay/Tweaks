@@ -67,8 +67,6 @@ typedef NS_ENUM(NSUInteger, _FBTweakTableViewCellMode) {
     _stepper = [[UIStepper alloc] init];
     [_stepper addTarget:self action:@selector(_stepperChanged:) forControlEvents:UIControlEventValueChanged];
     [_accessoryView addSubview:_stepper];
-    
-    self.detailTextLabel.textColor = [UIColor blackColor];
   }
 
   return self;
