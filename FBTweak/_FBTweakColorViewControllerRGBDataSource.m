@@ -125,7 +125,7 @@
 - (NSArray *)_colorsWithComponents:(NSArray *)colorComponents colorIndex:(NSUInteger)colorIndex
 {
   CGFloat currentColorValue = [colorComponents[colorIndex] floatValue];
-  CGFloat colors[12];
+  CGFloat colors[12] = {0};
   for (NSUInteger i = 0; i < _FBRGBAColorComponentsSize; i++)
   {
     colors[i] = [colorComponents[i] floatValue];
