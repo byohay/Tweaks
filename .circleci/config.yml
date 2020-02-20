@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     macos:
-      xcode: "11.1.0"
+      xcode: "11.3.1"
 
     steps:
       - checkout
@@ -12,7 +12,7 @@ jobs:
           command: fastlane scan
           environment:
             SCAN_PROJECT: FBTweak.xcodeproj
-            SCAN_DEVICE: iPhone 8
+            SCAN_DEVICE: iPhone 11
             SCAN_SCHEME: FBTweak
 
       - store_test_results:
