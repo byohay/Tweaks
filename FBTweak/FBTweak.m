@@ -179,8 +179,13 @@
                       defaultValue:(FBTweakValue)defaultValue {
   if (self = [super initWithIdentifier:identifier name:name defaultValue:defaultValue]) {
     NSData *archivedValue = [[NSUserDefaults standardUserDefaults] objectForKey:identifier];
-    self.currentValue = (archivedValue != nil && [archivedValue isKindOfClass:[NSData class]] ?
-                         [NSKeyedUnarchiver unarchiveObjectWithData:archivedValue] : archivedValue);
+    FBTweakValue persistedCurrentValue =
+        (archivedValue != nil && [archivedValue isKindOfClass:[NSData class]] ?
+         [NSKeyedUnarchiver unarchiveObjectWithData:archivedValue] : archivedValue);
+
+    if ([[persistedCurrentValue classForCoder] isEqual:[defaultValue classForCoder]]) {
+      self.currentValue = persistedCurrentValue;
+    }
   }
 
   return self;
