@@ -69,6 +69,7 @@
 		88A48056200208180046B7D1 /* _FBTweakTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 88A48055200208180046B7D1 /* _FBTweakTableViewCell.m */; };
 		9F9DC6BD20A4607400A46469 /* _FBEditableTweakDateViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 9F9DC6BB20A4607400A46469 /* _FBEditableTweakDateViewController.h */; };
 		9F9DC6BE20A4607400A46469 /* _FBEditableTweakDateViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9F9DC6BC20A4607400A46469 /* _FBEditableTweakDateViewController.mm */; };
+		B55B1C4B24D018020066B82B /* FBTweakTestsARC.m in Sources */ = {isa = PBXBuildFile; fileRef = B55B1C4A24D018020066B82B /* FBTweakTestsARC.m */; };
 		C15FEBB81C7F132400371B1D /* _FBTweakColorViewControllerHexDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = C15FEBB71C7F132400371B1D /* _FBTweakColorViewControllerHexDataSource.m */; };
 		C477D3AF7A5A522F1E6CC04B /* FBTweaksDisplayUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = C477DD168F334CD518E21CB9 /* FBTweaksDisplayUtils.h */; };
 		C477DA8D28A6F1EEEDCA535D /* _FBEditableTweakStringViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = C477DD61956C81159A9F11A3 /* _FBEditableTweakStringViewController.mm */; };
@@ -149,6 +150,7 @@
 		88A48055200208180046B7D1 /* _FBTweakTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = _FBTweakTableViewCell.m; sourceTree = "<group>"; };
 		9F9DC6BB20A4607400A46469 /* _FBEditableTweakDateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _FBEditableTweakDateViewController.h; sourceTree = "<group>"; };
 		9F9DC6BC20A4607400A46469 /* _FBEditableTweakDateViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = _FBEditableTweakDateViewController.mm; sourceTree = "<group>"; };
+		B55B1C4A24D018020066B82B /* FBTweakTestsARC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FBTweakTestsARC.m; sourceTree = "<group>"; };
 		C15FEBB61C7F132400371B1D /* _FBTweakColorViewControllerHexDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _FBTweakColorViewControllerHexDataSource.h; sourceTree = "<group>"; };
 		C15FEBB71C7F132400371B1D /* _FBTweakColorViewControllerHexDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.c.objc; path = _FBTweakColorViewControllerHexDataSource.m; sourceTree = "<group>"; tabWidth = 2; };
 		C477D2A188418782E224370C /* FBTweaksDisplayUtils.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FBTweaksDisplayUtils.mm; sourceTree = "<group>"; };
@@ -238,6 +240,7 @@
 			isa = PBXGroup;
 			children = (
 				18EFE4D1189ECF2000DA6A5D /* FBTweakInlineTestsARC.m */,
+				B55B1C4A24D018020066B82B /* FBTweakTestsARC.m */,
 				18EFE488189EBA4900DA6A5D /* Supporting Files */,
 			);
 			path = FBTweakTests;
@@ -494,6 +497,7 @@
 			files = (
 				5E1F48ED1901E80800D7C4A2 /* _FBColorUtils.m in Sources */,
 				18EFE4D2189ECF2000DA6A5D /* FBTweakInlineTestsARC.m in Sources */,
+				B55B1C4B24D018020066B82B /* FBTweakTestsARC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
