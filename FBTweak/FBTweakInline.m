@@ -16,6 +16,7 @@
 
 #import <UIKit/UIKit.h>
 #import <libkern/OSAtomic.h>
+#import <stdatomic.h>
 #import <mach-o/getsect.h>
 #import <mach-o/dyld.h>
 #import <dlfcn.h>
@@ -93,8 +94,8 @@ static id<FBTweak> _FBTweakCreateWithEntry(NSString *identifier, fb_tweak_entry 
 
 + (void)load
 {
-  static uint32_t _tweaksLoaded = 0;
-  if (OSAtomicTestAndSetBarrier(1, &_tweaksLoaded)) {
+  static atomic_bool _tweaksLoaded = false;
+  if (atomic_fetch_or(&_tweaksLoaded, true)) {
     return;
   }
   
