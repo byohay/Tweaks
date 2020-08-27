@@ -9,6 +9,8 @@
 
 #import "FBTweak.h"
 
+#import <UIKit/UIKit.h>
+
 @implementation FBTweakNumericRange
 
 - (instancetype)initWithMinimumValue:(FBTweakValue)minimumValue maximumValue:(FBTweakValue)maximumValue
@@ -179,8 +181,13 @@
                       defaultValue:(FBTweakValue)defaultValue {
   if (self = [super initWithIdentifier:identifier name:name defaultValue:defaultValue]) {
     NSData *archivedValue = [[NSUserDefaults standardUserDefaults] objectForKey:identifier];
-    self.currentValue = (archivedValue != nil && [archivedValue isKindOfClass:[NSData class]] ?
-                         [NSKeyedUnarchiver unarchiveObjectWithData:archivedValue] : archivedValue);
+    if (archivedValue != nil && [archivedValue isKindOfClass:[NSData class]]) {
+      self.currentValue =
+          [NSKeyedUnarchiver unarchivedObjectOfClasses:[FBPersistentTweak validValueClasses]
+                                              fromData:archivedValue error:nil];
+    } else {
+      self.currentValue = archivedValue;
+    }
   }
 
   return self;
@@ -188,8 +195,25 @@
 
 - (void)setCurrentValue:(FBTweakValue)currentValue {
   [super setCurrentValue:currentValue];
+
   // we can't store UIColor to the plist file. That is why we archive value to the NSData.
-  [[NSUserDefaults standardUserDefaults] setObject:[NSKeyedArchiver archivedDataWithRootObject:currentValue] forKey:self.identifier];
+  NSError *error;
+  NSData *data = [NSKeyedArchiver archivedDataWithRootObject:currentValue requiringSecureCoding:YES
+                                                   error:&error];
+  NSAssert(data != nil, @"Failed to archive value with error: %@", error);
+  [[NSUserDefaults standardUserDefaults] setObject:data forKey:self.identifier];
+}
+
++ (NSSet<Class> *)validValueClasses {
+  return [NSSet setWithArray:@[
+    [NSData class],
+    [NSString class],
+    [NSNumber class],
+    [NSDate class],
+    [NSArray class],
+    [NSDictionary class],
+    [UIColor class]
+  ]];
 }
 
 @end
