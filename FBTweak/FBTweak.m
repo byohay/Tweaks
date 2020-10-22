@@ -198,8 +198,8 @@
 
   // we can't store UIColor to the plist file. That is why we archive value to the NSData.
   NSError *error;
-  NSData *data = [NSKeyedArchiver archivedDataWithRootObject:currentValue requiringSecureCoding:YES
-                                                   error:&error];
+  NSData *data = [NSKeyedArchiver archivedDataWithRootObject:self.currentValue
+                                       requiringSecureCoding:YES error:&error];
   NSAssert(data != nil, @"Failed to archive value with error: %@", error);
   [[NSUserDefaults standardUserDefaults] setObject:data forKey:self.identifier];
 }
