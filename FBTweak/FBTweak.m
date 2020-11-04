@@ -180,13 +180,22 @@
 - (instancetype)initWithIdentifier:(NSString *)identifier name:(NSString *)name
                       defaultValue:(FBTweakValue)defaultValue {
   if (self = [super initWithIdentifier:identifier name:name defaultValue:defaultValue]) {
+    id currentValue;
     NSData *archivedValue = [[NSUserDefaults standardUserDefaults] objectForKey:identifier];
     if (archivedValue != nil && [archivedValue isKindOfClass:[NSData class]]) {
-      self.currentValue =
+      currentValue =
           [NSKeyedUnarchiver unarchivedObjectOfClasses:[FBPersistentTweak validValueClasses]
                                               fromData:archivedValue error:nil];
     } else {
-      self.currentValue = archivedValue;
+      currentValue = archivedValue;
+    }
+
+    // Using \c class instead of \c classForKeyedArchiver might lead to unexpected behaviour because
+    // defaultValue might be a hidden class like \c NSTaggedPointerString, in which case the check
+    // will fail. \c classForKeyedArchiver will return the class we want to check against.
+    if (!self.defaultValue ||
+        [currentValue isKindOfClass:[self.defaultValue classForKeyedArchiver]]) {
+      self.currentValue = currentValue;
     }
   }
 
