@@ -1,0 +1,29 @@
+name: CI
+
+on: [pull_request, push, workflow_dispatch]
+
+jobs:
+  test:
+    name: Build and Test
+    runs-on: macos-10.15
+
+    steps:
+    - name: Setup Xcode
+      uses: maxim-lobanov/setup-xcode@v1.2.1
+      with:
+        xcode-version: '12.4'
+
+    - name: Checkout repo
+      uses: actions/checkout@v2
+      with:
+        submodules: recursive
+        lfs: true
+
+    - name: Build and Run Tests
+      run: xcodebuild -project FBTweak.xcodeproj -scheme FBTweak -destination 'platform=iOS Simulator,name=iPhone 12,OS=latest' -resultBundlePath result_bundle.xcresult test
+
+    - name: Upload result bundle
+      uses: actions/upload-artifact@v2
+      with:
+        name: result_bundle.xcresult
+        path: result_bundle.xcresult
