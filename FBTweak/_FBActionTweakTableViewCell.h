@@ -21,7 +21,7 @@
 @interface _FBActionTweakTableViewCell : UITableViewCell <_FBTweakContainer>
 
 //! @abstract The tweak to show in the cell.
-@property (nonatomic, strong, readwrite) FBActionTweak *tweak;
+@property (nonatomic, strong, readwrite) id<FBActionTweak> tweak;
 
 @end
 

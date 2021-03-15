@@ -21,6 +21,10 @@ typedef void (^FBActionTweakTableViewCellBlock)(_FBActionTweakTableViewCell *cel
 
 + (NSDictionary<NSString *, FBActionTweakTableViewCellBlock> *)keyPathMapping {
   return @{
+    @"tweak.isEnabled": ^(_FBTweakTableViewCell *cell, NSNumber *value) {
+      cell.textLabel.enabled = value.boolValue;
+      cell.userInteractionEnabled = value.boolValue;
+    },
     @"tweak.name": ^(_FBTweakTableViewCell *cell, id value) {
       if ([value isKindOfClass:[NSString class]]) {
         cell.textLabel.text = value;

@@ -66,6 +66,7 @@
 @synthesize name = _name;
 @synthesize identifier = _identifier;
 @synthesize currentValue = _currentValue;
+@synthesize isEnabled = _isEnabled;
 
 - (instancetype)initWithIdentifier:(NSString *)identifier name:(NSString *)name
                              block:(dispatch_block_t)block {
@@ -73,6 +74,16 @@
     _identifier = identifier;
     _name = name;
     _currentValue = block;
+    _isEnabled = YES;
+    __weak typeof(self) weakSelf = self;
+    _currentValue = ^{
+      __strong typeof(self) self = weakSelf;
+      if (!self) {
+        return;
+      }
+      NSAssert(self.isEnabled, @"FBActionTweak block called while the tweak is not enabled");
+      block();
+    };
   }
   return self;
 }
