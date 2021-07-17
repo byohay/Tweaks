@@ -99,6 +99,7 @@
 @synthesize possibleValues = _possibleValues;
 @synthesize precisionValue = _precisionValue;
 @synthesize stepValue = _stepValue;
+@synthesize editableFromUI = _editableFromUI;
 
 - (instancetype)initWithIdentifier:(NSString *)identifier name:(NSString *)name
                       defaultValue:(FBTweakValue)defaultValue {
@@ -106,6 +107,7 @@
     _identifier = identifier;
     _name = name;
     _defaultValue = defaultValue;
+    _editableFromUI = YES;
   }
 
   return self;

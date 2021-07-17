@@ -151,6 +151,8 @@ typedef id FBTweakValue;
  */
 @property (readwrite, nonatomic, nullable) FBTweakValue precisionValue;
 
+@property (readwrite) BOOL editableFromUI;
+
 @end
 
 /**

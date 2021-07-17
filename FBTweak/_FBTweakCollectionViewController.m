@@ -53,10 +53,15 @@
 - (Class)tweakCellForTweak:(id<FBTweak>)tweak {
   if ([tweak conformsToProtocol:@protocol(FBActionTweak)]) {
     return [_FBActionTweakTableViewCell class];
-  } else if ([tweak conformsToProtocol:@protocol(FBEditableTweak)]) {
+  } else if ([self editableTweak:tweak]) {
     return [_FBEditableTweakTableViewCell class];
   }
   return [_FBTweakTableViewCell class];
+}
+
+- (BOOL)editableTweak:(id<FBTweak>)tweak {
+  return [tweak conformsToProtocol:@protocol(FBEditableTweak)] &&
+      ((id<FBEditableTweak>)tweak).editableFromUI;
 }
 
 - (void)dealloc
@@ -181,7 +186,7 @@
       block();
     }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-  } else if ([tweak conformsToProtocol:@protocol(FBEditableTweak)]) {
+  } else if ([self editableTweak:tweak]) {
     id<FBEditableTweak> editableTweak = (id<FBEditableTweak>)tweak;
     if ([editableTweak.possibleValues isKindOfClass:[NSDictionary class]]) {
       _FBEditableTweakDictionaryViewController *vc = [[_FBEditableTweakDictionaryViewController alloc] initWithEditableTweak:editableTweak];
